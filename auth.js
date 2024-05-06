@@ -7,10 +7,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://aranloyejoshua:jayjay@cluster0.xsvayf9.mongodb.net/', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb+srv://aranloyejoshua:jayjay@cluster0.xsvayf9.mongodb.net/');
 const PORT = process.env.PORT || 3000;
 
 // Step 3: Creating the Models
