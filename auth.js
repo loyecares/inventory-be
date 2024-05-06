@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://aranloyejoshua:jayjay@cluster0.xsvayf9.mongodb.net/');
+mongoose.connect('mongodb+srv://aranloyejoshua:jayjay@cluster0.xsvayf9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 const PORT = process.env.PORT || 3000;
 
 // Step 3: Creating the Models
@@ -25,6 +25,7 @@ const signUp = async (req, res) => {
     await user.save();
     res.status(201).send('User created successfully.');
   } catch (error) {
+    console.error('Error creating user:', error.message);
     res.status(500).send('Error creating user.');
   }
 };
